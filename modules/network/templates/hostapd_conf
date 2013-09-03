@@ -1,4 +1,4 @@
-ssid=radiodan-configuration
+ssid=raspberrypi-wifi-configuration
 interface=wlan0
 driver=nl80211
 hw_mode=g

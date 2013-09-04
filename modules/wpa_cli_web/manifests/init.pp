@@ -1,15 +1,12 @@
 class wpa_cli_web {
-
-  package { 'git':
-    ensure => installed,
+  package { 'wpa_cli_web':
+    provider => 'gem',
+    require => Package['ruby1.9.3'],
+    ensure => latest,
   }
 
-  vcsrepo { "":
-    ensure => latest,
-    provider => git,
-    require => [ Package["git"] ],
-    source => "http://github.com/chrisfinch/wifi-configuration.git",
-    revision => 'master'
+  file { "/etc/profile.d/my_test.sh"
+    content => 'export wifi_config_name="Tweet Owl"'
   }
 
   file { '/etc/init.d/wpa_cli_web':

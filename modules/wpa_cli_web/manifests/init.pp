@@ -5,7 +5,7 @@ class wpa_cli_web {
     ensure => latest,
   }
 
-  file { "/etc/profile.d/my_test.sh"
+  file { "/etc/profile.d/my_test.sh":
     content => 'export wifi_config_name="Tweet Owl"'
   }
 

@@ -1,8 +1,15 @@
 class wpa_cli_web {
-  package { 'wpa_cli_web':
-    provider => 'gem',
-    require => Package['ruby1.9.3'],
+
+  package { 'git':
+    ensure => installed,
+  }
+
+  vcsrepo { "":
     ensure => latest,
+    provider => git,
+    require => [ Package["git"] ],
+    source => "http://github.com/chrisfinch/wifi-configuration.git",
+    revision => 'master'
   }
 
   file { '/etc/init.d/wpa_cli_web':
